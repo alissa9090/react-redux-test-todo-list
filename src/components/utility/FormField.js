@@ -5,7 +5,7 @@ import { Field } from 'redux-form';
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
     <div>
       <input {...input} placeholder={label} type={type} className="form-control"/>
-      {touched && error && <span>{error}</span>}
+      {touched && error && <span className="validation-error">{error}</span>}
     </div>
 )
 
