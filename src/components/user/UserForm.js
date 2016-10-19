@@ -32,7 +32,7 @@ class UserForm extends React.Component {
             <legend>{this.titles[mode]}</legend>
             <FormField fieldName="name" mode={mode} label="Name"/>
             <FormField fieldName="username" mode={mode} label="Username"/>
-            <FormField fieldName="email" mode={mode} label="Email"/>
+            <FormField fieldName="email" type="email" mode={mode} label="Email"/>
             <FormField fieldName="phone" mode={mode} label="Phone"/>
             <FormField fieldName="website" mode={mode} label="Website"/>
             <FormField fieldName="photoUrl" mode={mode} label="Photo URL"/>

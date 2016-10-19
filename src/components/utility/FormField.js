@@ -2,13 +2,14 @@ import React from 'react'
 import { FormGroup, ControlLabel, FormControl, Col } from 'react-bootstrap';
 import { Field } from 'redux-form';
 
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+    <div>
+      <input {...input} placeholder={label} type={type} className="form-control"/>
+      {touched && error && <span>{error}</span>}
+    </div>
+)
+
 const FormField = ({mode, fieldName, type, label}) => {
-  const renderField = ({ input, label, type, meta: { touched, error } }) => (
-      <div>
-        <input {...input} placeholder={label} type={type} className="form-control"/>
-        {touched && error && <span>{error}</span>}
-      </div>
-  )
   let formControl = ""
   if(mode === 'view'){
     formControl = <FormControl.Static>
@@ -16,6 +17,7 @@ const FormField = ({mode, fieldName, type, label}) => {
                   </FormControl.Static>
   } else {
     formControl = <Field
+      type={type}
       name={fieldName}
       component={renderField} />
   }
