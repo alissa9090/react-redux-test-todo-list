@@ -1,11 +1,11 @@
 # ToDo List
 
-Try the [deployed app](https://alissa9090.github.io/react-test-todo-list/) or read below how to run it locally.
+Try the [deployed app](https://alissa9090.github.io/react-redux-test-todo-list/) or read below how to run it locally.
 
 
 ## How to run locally
 
-First checkout the repository (`$ git clone https://github.com/alissa9090/react-test-todo-list.git`) or download it as a [ZIP file](https://github.com/alissa9090/react-test-todo-list/archive/master.zip).
+First checkout the repository (`$ git clone https://github.com/alissa9090/react-redux-test-todo-list.git`) or download it as a [ZIP file](https://github.com/alissa9090/react-redux-test-todo-list/archive/master.zip).
 
 Then install dependencies:
 
@@ -27,8 +27,8 @@ It’ll start the app on [http://localhost:3333/](http://localhost:3333/).
 ### App
 
 * [React](http://facebook.github.io/react/).
-* [mobx-react] (https://github.com/mobxjs/mobx-react/).
-* [mobx-react-form] (https://github.com/foxhound87/mobx-react-form/).
+* [react-redux] (https://github.com/reactjs/react-redux/).
+* [redux-form] (https://github.com/erikras/redux-form/).
 * [bootstrap] (https://react-bootstrap.github.io/).
 
 ### Styles
