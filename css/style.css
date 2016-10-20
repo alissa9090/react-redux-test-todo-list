@@ -83,6 +83,12 @@ body{
 .user-todos, .user-form{
   margin-top: 10px;
 }
+.user-form .form-control[readonly]{
+  border: 0;
+  background-color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 .clearFloats{
   clear: both;
 }

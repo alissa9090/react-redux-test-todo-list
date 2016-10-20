@@ -9,29 +9,26 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
     </div>
 )
 
-const FormField = ({mode, fieldName, type, label}) => {
-  let formControl = ""
-  if(mode === 'view'){
-    formControl = <FormControl.Static>
-                    value
-                  </FormControl.Static>
-  } else {
-    formControl = <Field
-      type={type}
-      name={fieldName}
-      component={renderField} />
-  }
-  return (
-    <FormGroup controlId={fieldName}>
-      <Col componentClass={ControlLabel} sm={2}>
-        {label}:
-      </Col>
-      <Col sm={10}>
-        {formControl}
-      </Col>
-    </FormGroup>
-  )
-}
+const renderReadonlyField = ({ input, label, type, meta: { touched, error } }) => (
+    <div>
+      <input {...input} readOnly="readonly" placeholder={label} type={type} className="form-control readonly"/>
+      {touched && error && <span className="validation-error">{error}</span>}
+    </div>
+)
+
+const FormField = ({mode, fieldName, type, label}) => (
+  <FormGroup controlId={fieldName}>
+    <Col componentClass={ControlLabel} sm={2}>
+      {label}:
+    </Col>
+    <Col sm={10}>
+      <Field
+        type={type}
+        name={fieldName}
+        component={mode === 'view' ? renderReadonlyField : renderField} />
+    </Col>
+  </FormGroup>
+)
 
 FormField.propTypes = {
   fieldName: React.PropTypes.string.isRequired,
