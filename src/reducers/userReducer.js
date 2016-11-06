@@ -70,7 +70,7 @@ export default function reducer(state={
       return {
         ...state,
         userUpdating: false,
-        users: state.users.filter(user=>user.id != action.payload)
+        users: state.users.filter(user=>user.id !== action.payload)
       }
     case "DELETE_USER_REJECTED":
       return {

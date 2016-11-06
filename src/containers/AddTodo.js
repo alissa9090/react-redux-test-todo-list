@@ -21,15 +21,11 @@ class AddTodo extends React.Component {
   }
   render(){
     return (
-
-
         <FormControl
           type="text"
           placeholder="What needs to be done?"
           className="create-todo"
           onKeyUp={this.submitForm}/>
-
-
     )
   }
 }

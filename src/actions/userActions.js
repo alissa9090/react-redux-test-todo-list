@@ -11,13 +11,13 @@ export function fetchUsers(callbackSuccess, callbackError){
     userApi.fetchUsers()
     .then((response) => {
       dispatch({type: "FETCH_USERS_FULFILLED", payload: response})
-      if(callbackSuccess){
+      if(isFunction(callbackSuccess)){
         callbackSuccess(responce)
       }
     })
     .catch((err) => {
       dispatch({type: "FETCH_USERS_REJECTED", payload: err})
-      if(callbackError){
+      if(isFunction(callbackError)){
         callbackError(err)
       }
     })
@@ -32,15 +32,14 @@ export function addUser(user, callbackSuccess, callbackError) {
     user.id = newId
     userApi.saveUser(user)
     .then((responce) => {
-
       dispatch({type: "ADD_USER_SUCCESS", payload: responce})
-      if(callbackSuccess){
+      if(isFunction(callbackSuccess)){
         callbackSuccess(responce)
       }
     })
     .catch((err) => {
       dispatch({type: "ADD_USER_REJECTED", payload: {err, user}})
-      if(callbackError){
+      if(isFunction(callbackError)){
         callbackError(err)
       }
     })
@@ -53,13 +52,13 @@ export function updateUser(user, callbackSuccess, callbackError) {
     userApi.saveUser(user)
     .then((responce) => {
       dispatch({type: "UPDATE_USER_SUCCESS", payload: responce})
-      if(callbackSuccess){
+      if(isFunction(callbackSuccess)){
         callbackSuccess(responce)
       }
     })
     .catch((err) => {
       dispatch({type: "UPDATE_USER_REJECTED", payload: {err, user}})
-      if(callbackError){
+      if(isFunction(callbackError)){
         callbackError(err)
       }
     })
@@ -71,14 +70,14 @@ export function deleteUser(id, callbackSuccess, callbackError) {
     dispatch({type: "DELETE_USER", payload: id})
     userApi.deleteUser(id)
     .then((responce) => {
-      dispatch({type: "DELETE_USER_SUCCESS", payload: responce})
-      if(callbackSuccess){
+      dispatch({type: "DELETE_USER_SUCCESS", payload: id})
+      if(isFunction(callbackSuccess)){
         callbackSuccess(responce)
       }
     })
     .catch((err) => {
       dispatch({type: "DELETE_USER_REJECTED", payload: err})
-      if(callbackError){
+      if(isFunction(callbackError)){
         callbackError(err)
       }
     })
@@ -88,4 +87,9 @@ export function deleteUser(id, callbackSuccess, callbackError) {
 function getNewUserId(users){
   const userMaxId = Math.max.apply(Math,users.map(function(user){return user.id}))
   return userMaxId + 1
+}
+
+function isFunction(functionToCheck) {
+ var getType = {};
+ return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
 }
