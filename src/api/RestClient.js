@@ -1,7 +1,7 @@
 import fetch from "isomorphic-fetch"
 
 export default class RestClient {
-  baseUrl
+  //baseUrl
 
   constructor(baseUrl){
     this.baseUrl = baseUrl

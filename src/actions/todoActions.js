@@ -18,6 +18,13 @@ export function fetchTodos(){
   }
 }
 
+export function addTodoSync(text) {
+  return {
+    type: 'ADD_TODO',
+    text
+  }
+}
+
 export function addTodo(todo) {
   return function(dispatch, getState) {
     const state = getState()

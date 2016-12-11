@@ -1,7 +1,7 @@
 import RestClient from "./RestClient"
 
 export default class TodoApi {
-  restClient
+  //restClient
 
   constructor(restClient){
     this.restClient = restClient
